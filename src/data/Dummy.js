@@ -8,6 +8,7 @@ export const data=[{
     "address": "Kolkata",
     "gender": "male",
     "country": "90",
+     "photo":"",
     "dob": "1997-12-18T08:25:34.182Z",
     "countryName":"India"
 },
@@ -21,6 +22,7 @@ export const data=[{
     "address": "Bangalore",
     "gender": "male",
     "country": "90",
+    "photo":"",
     "dob": "1996-06-21T08:25:34.182Z",
     "countryName":"India"
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import EditStudentForm from "./EditStudentForm";
 import PageHeader from "../../components/PageHeader";
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
-import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
+import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment ,Avatar} from '@material-ui/core';
 import useTable from "../../components/useTable";
 import * as studentService from "../../services/studentService";
 import Controls from "../../components/controls/Controls";
@@ -16,6 +16,7 @@ import Header from '../../components/Header';
 import ActionButton from '../../components/controls/ActionButton';
 import * as Action from '../../store/action/studentAction'
 import { useSelector, useDispatch } from 'react-redux';
+
 
 
 
@@ -63,12 +64,12 @@ export default function Students() {
         //studentService.getAllStudents();
         const countries = studentService.getCountryCollection()
         dispatch(Action.fetchStudents(countries));
-        console.log("inside init.....")
+      
     }
 
     useEffect(() => {
         init();
-        console.log("inside useEffect.....", students)
+     
         setRecords(students)
     }, [refresher, students, records, recordForEdit]);
 
@@ -86,7 +87,7 @@ export default function Students() {
                 if (target.value == "")
                     return items;
                 else
-                    return items.filter(x => x.fullName.toLowerCase().includes(target.value))
+                    return items.filter(x => x.firstName.toLowerCase().includes(target.value))
             }
         })
     }
@@ -143,7 +144,9 @@ export default function Students() {
                         {
                             recordsAfterPagingAndSorting().map(item =>
                                 (<TableRow key={item.id}>
-                                    <TableCell>{item.photo}</TableCell>
+                                    <TableCell>
+                                    <Avatar alt="i" src= {item.photo} className={classes.large} />
+                                        </TableCell>
                                     <TableCell>{item.firstName}</TableCell>
                                     <TableCell>{item.fatherName}</TableCell>
                                     <TableCell>{item.email}</TableCell>

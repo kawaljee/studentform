@@ -7,6 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import StudentReducer from '../store/reducer/studentReducer';
+import Hidden from '@material-ui/core/Hidden';
 
 
 
@@ -43,7 +44,16 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   appMain: {
-    paddingLeft: '250px',
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: '0',
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '250px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: '250px',
+    },
+   // paddingLeft: '250px',
     width: '100%'
   }
 })
@@ -62,7 +72,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <SideMenu display={{ xs: 'none', sm: 'none' }} />
+      
+      <Hidden smDown>
+      <SideMenu  /></Hidden>
       <div className={classes.appMain}>
        
      <Provider store={store}>

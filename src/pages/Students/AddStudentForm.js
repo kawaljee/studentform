@@ -68,29 +68,42 @@ const  AddStudentForm = (props) => {
         resetForm
     } = useForm(initialFValues, true, validate);
 
-    const onDrop= picture => {
+//     const onDrop= (e)=> {
        
         
-       ///console.log("picture dataaaaaaaaaaaaaaaaa",JSON.stringify(picture))
-        //pictures: this.state.pictures.concat(picture),
-        setValues({ ...values, 'photo': picture });
+     
+//         setValues({ ...values, 'photo': picture });
     
-}
+// }
+
+const onDrop = (e) => {
+    const reader = new FileReader();
+    reader.onload = () =>{
+      if(reader.readyState === 2){
+       
+        setValues({ ...values, 'photo': reader.result });
+      
+       
+      }
+    }
+    reader.readAsDataURL(e[0])
+  };
 
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()) {
-            console.log("inside handle submit of addstudent form")
+          
             values['id'] = studentService.generateStudentId()
             props.addOrEdit(values, resetForm)
             resetForm()
         }
     }
+   
 
     return (
         <Form onSubmit={handleSubmit}>
             <Grid container>
-                <Grid item xs={6}>
+                <Grid item xs={12}  sm={6} md={6} lg={6}>
                     <Controls.Input
                         name="firstName"
                         label="First Name"
@@ -134,7 +147,7 @@ const  AddStudentForm = (props) => {
                     />
 
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12}  sm={6} md={6} lg={6}>
                     <Controls.RadioGroup
                         name="gender"
                         label="Gender"

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, } from '@material-ui/core';
+import { Grid, Avatar, } from '@material-ui/core';
 import Controls from "../../components/controls/Controls";
 import { useForm, Form } from '../../components/useForm';
 import * as studentService from "../../services/studentService";
+import ImageUploader from 'react-images-upload';
 
 
 const genderItems = [
@@ -27,7 +28,7 @@ const initialFValues = {
 }
 
 export default function EditStudentForm(props) {
-    
+
     const { addOrEdit, recordForEdit } = props
 
     const validate = (fieldValues = values) => {
@@ -70,6 +71,17 @@ export default function EditStudentForm(props) {
         }
     }
 
+    const onDrop = (e) => {
+        const reader = new FileReader();
+        reader.onload = () =>{
+          if(reader.readyState === 2){
+            setValues({ ...values, 'photo': reader.result });
+           
+          }
+        }
+        reader.readAsDataURL(e[0])
+      };
+
     useEffect(() => {
         if (recordForEdit != null)
             setValues({
@@ -80,7 +92,7 @@ export default function EditStudentForm(props) {
     return (
         <Form onSubmit={handleSubmit}>
             <Grid container>
-                <Grid item xs={6}>
+                <Grid item xs={12}  sm={6} md={6} lg={6}>
                     <Controls.Input
                         name="firstName"
                         label="First Name"
@@ -124,7 +136,8 @@ export default function EditStudentForm(props) {
                     />
 
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12}  sm={6} md={6} lg={6}>
+                    <Avatar alt="" src={values.photo} style={{height:100,width:100,marginLeft:'25%'}} />
                     <Controls.RadioGroup
                         name="gender"
                         label="Gender"
@@ -145,6 +158,16 @@ export default function EditStudentForm(props) {
                         label="Date Of Birth"
                         value={values.dob}
                         onChange={handleInputChange}
+                    />
+
+                    <ImageUploader
+                        withPreview={true}
+                        accept={"accept=image/*"}
+                        withIcon={true}
+                        buttonText='Upload images'
+                        onChange={onDrop}
+                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                        maxFileSize={5242880}
                     />
                   
 
