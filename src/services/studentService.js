@@ -24,7 +24,6 @@ export const getCountryCollection = () => ([{"id":"1","title":"Afghanistan"},{"i
 // ])
 
 
-
 export function updateStudent(data) {
    
     Action.updateStudent(data);
@@ -32,11 +31,8 @@ export function updateStudent(data) {
 }
 
 export function generateStudentId() {
-    if (localStorage.getItem(KEYS.studentId) == null)
-        localStorage.setItem(KEYS.studentId, '0')
-    var id = parseInt(localStorage.getItem(KEYS.studentId))
-    localStorage.setItem(KEYS.studentId, (++id).toString())
-    return id;
+  
+    return Math.random()*10000000000;
 }
 
 

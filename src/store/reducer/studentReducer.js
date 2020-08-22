@@ -13,7 +13,7 @@ import {
     ...x,
     'countryName': countries[x.country - 1].title
 }))
-console.log("dataaaaaaaaaaa",data)
+
   const initialState = {
     userStudents: temp
   };

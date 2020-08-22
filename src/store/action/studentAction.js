@@ -27,7 +27,7 @@ export const deleteStudent = (student) => {
 
 export const createStudent = (data) => {
   return async (dispatch, getState) => {
-      console.log("inside dispatch create student acction",data)
+     
         dispatch({
           type: CREATE_STUDENT,
           studentData : data

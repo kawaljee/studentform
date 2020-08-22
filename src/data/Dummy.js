@@ -13,15 +13,16 @@ export const data=[{
 },
 {
     "id": 2,
-    "firstName": "kawal",
-    "lastName": "dhar",
-    "fatherName": "DPD",
-    "email": "avinas@gmail.com",
+    "firstName": "Ravi",
+    "lastName": "Singh",
+    "fatherName": "Sharan",
+    "email": "ravi@gmail.com",
     "mobile": "9901331653",
-    "address": "bokaro",
+    "address": "Bangalore",
     "gender": "male",
-    "country": "1",
-    "dob": "2020-08-21T08:25:34.182Z",
+    "country": "90",
+    "dob": "1996-06-21T08:25:34.182Z",
     "countryName":"India"
 }
+
 ];

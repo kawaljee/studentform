@@ -48,7 +48,7 @@ export default function Students() {
 
     const dispatch = useDispatch();
     const students = useSelector(state => state.student.userStudents);
-    console.log("studentsssssssssssss", students)
+    
     const classes = useStyles();
     const [recordForEdit, setRecordForEdit] = useState(null)
     const [records, setRecords] = useState(students)
@@ -112,8 +112,8 @@ export default function Students() {
         <>
             <Header />
             <PageHeader
-                title="New Student"
-                subTitle="Form design with validation for student registration"
+                title="View Students"
+                subTitle="View and update all students here"
                 icon={<PeopleOutlineTwoToneIcon fontSize="large" />}
             />
             <Paper className={classes.pageContent}>
