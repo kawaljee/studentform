@@ -5,15 +5,12 @@ export const DELETE_STUDENT = 'DELETE_STUDENT';
 export const CREATE_STUDENT = 'CREATE_STUDENT';
 export const UPDATE_STUDENT = 'UPDATE_STUDENT';
 export const SET_STUDENT = 'SET_STUDENT';
-export const fetchStudents = (countries) => {
+export const fetchStudents = () => {
    
   return async (dispatch, getState) => {
         dispatch({
-          type: SET_STUDENT,
-          students: {
-              data,
-              countries
-            }
+          type: SET_STUDENT
+  
         });
    
   };

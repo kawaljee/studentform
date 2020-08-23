@@ -23,9 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Students() {
     const dispatch = useDispatch();
-    const [createdStudent, setCreatedStudent] =useState(false);
-    const [refresher, setRefresher] = useState(false);
-  
+    const [createdStudent, setCreatedStudent] =useState(false); 
     const classes = useStyles();
     const addOrEdit = (student, resetForm) => {
            
@@ -37,7 +35,6 @@ export default function Students() {
         
             
         resetForm()
-        setRefresher(!refresher);
         
     }
     const showSuccess = () => (

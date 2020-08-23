@@ -1,3 +1,6 @@
+import avinash from '../assets/kakashi.png'
+import ravi from '../assets/shaske.png'
+
 export const data=[{
     "id": 1,
     "firstName": "Avinash",
@@ -8,7 +11,7 @@ export const data=[{
     "address": "Kolkata",
     "gender": "male",
     "country": "90",
-     "photo":"",
+     "photo":avinash,
     "dob": "1997-12-18T08:25:34.182Z",
     "countryName":"India"
 },
@@ -22,9 +25,10 @@ export const data=[{
     "address": "Bangalore",
     "gender": "male",
     "country": "90",
-    "photo":"",
+    "photo":ravi,
     "dob": "1996-06-21T08:25:34.182Z",
     "countryName":"India"
-}
+},
+
 
 ];

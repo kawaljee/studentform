@@ -176,7 +176,7 @@ const onDrop = (e) => {
                         withIcon={true}
                         buttonText='Upload images'
                         onChange={onDrop}
-                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                        imgExtension={['.jpg', '.gif', '.png', '.gif','.jpeg']}
                         maxFileSize={5242880}
                     />
 

@@ -55,23 +55,20 @@ export default function Students() {
     const [records, setRecords] = useState(students)
     const [filterFn, setFilterFn] = useState({ fn: items => { return items; } })
     const [openPopup, setOpenPopup] = useState(false);
-    const [refresher, setRefresher] = useState(false);
+ 
 
 
 
 
     const init = () => {
-        //studentService.getAllStudents();
-        const countries = studentService.getCountryCollection()
-        dispatch(Action.fetchStudents(countries));
-      
+        dispatch(Action.fetchStudents());    
     }
 
     useEffect(() => {
         init();
      
         setRecords(students)
-    }, [refresher, students, records, recordForEdit]);
+    }, [ students, recordForEdit]);
 
     const {
         TblContainer,
@@ -97,7 +94,7 @@ export default function Students() {
         resetForm()
         setRecordForEdit(null)
         setOpenPopup(false)
-        setRefresher(!refresher);
+       // setRefresher(!refresher);
 
     }
 

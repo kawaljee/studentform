@@ -4,6 +4,8 @@ import Controls from "../../components/controls/Controls";
 import { useForm, Form } from '../../components/useForm';
 import * as studentService from "../../services/studentService";
 import ImageUploader from 'react-images-upload';
+// import avinash from '../../assets/kakashi.png'
+// import ravi from '../../assets/shaske.png'
 
 
 const genderItems = [
@@ -166,7 +168,7 @@ export default function EditStudentForm(props) {
                         withIcon={true}
                         buttonText='Upload images'
                         onChange={onDrop}
-                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                        imgExtension={['.jpg', '.gif', '.png', '.gif' ,'.jpeg']}
                         maxFileSize={5242880}
                     />
                   
