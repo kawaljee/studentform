@@ -74,6 +74,7 @@ export default function EditStudentForm(props) {
     }
 
     const onDrop = (e) => {
+        if(e[0]){
         const reader = new FileReader();
         reader.onload = () =>{
           if(reader.readyState === 2){
@@ -82,6 +83,7 @@ export default function EditStudentForm(props) {
           }
         }
         reader.readAsDataURL(e[0])
+    }
       };
 
     useEffect(() => {

@@ -77,6 +77,7 @@ const  AddStudentForm = (props) => {
 // }
 
 const onDrop = (e) => {
+    if(e[0]){
     const reader = new FileReader();
     reader.onload = () =>{
       if(reader.readyState === 2){
@@ -87,6 +88,7 @@ const onDrop = (e) => {
       }
     }
     reader.readAsDataURL(e[0])
+}
   };
 
     const handleSubmit = e => {
